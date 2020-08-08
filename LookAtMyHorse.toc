@@ -1,5 +1,5 @@
 ## Interface: 80300
-## Title: Look At My Horse
+## Title: Look At My Horse! |TInterface\AddOns\LookAtMyHorse\Textures\horse:24:24|t
 ## Author: Astor
 ## Version: 1.0
 ## Notes: My horse is amazing!
