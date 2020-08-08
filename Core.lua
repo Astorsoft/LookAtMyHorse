@@ -1,6 +1,7 @@
 local _, class, _ = UnitClass("Player")
 
 if class == "PALADIN" then
+    print("|cFF00FFFFLookAtMyHorse:|r Type |cFFFF00FF/horse|r to start crackin! |TInterface\\AddOns\\LookAtMyHorse\\Textures\\horse:24:24|t")
     local horses = {
         "Interface\\AddOns\\LookAtMyHorse\\Sounds\\horse1.mp3",
         "Interface\\AddOns\\LookAtMyHorse\\Sounds\\horse2.mp3",
@@ -18,7 +19,7 @@ if class == "PALADIN" then
         if msg == "" then
             enabled = not enabled
             if enabled then
-                print("Look at my horse on!")
+                print("Look at my horse on! |TInterface\\AddOns\\LookAtMyHorse\\Textures\\horse:24:24|t")
             else
                 print("Look at my horse off :(")
             end
