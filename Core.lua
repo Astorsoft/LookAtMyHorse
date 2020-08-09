@@ -72,7 +72,7 @@ if class == "PALADIN" then
         if spellid ~= 190784 then return end
         local who = select(1, ...)
         if who ~= "player" then return end
-        if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = true, frequency = 1} end
+        if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = false, frequency = 1} end
         if LookAtMyHorseDB.enabled and (random(1,LookAtMyHorseDB.frequency) == 1) then 
             if LookAtMyHorseDB.mode == "full" then
                 PlaySoundFile(horses[index % 5 + 1], "Master")
@@ -82,7 +82,7 @@ if class == "PALADIN" then
             else -- mono
                 PlaySoundFile(horses[1], "Master")
             end
-            if chat then SendChatMessage("Look at my horse! My horse is amazing!" ,"SAY") end
+            if LookAtMyHorseDB.chat then SendChatMessage("Look at my horse! My horse is amazing!" ,"SAY") end
         end
     end)
 end
