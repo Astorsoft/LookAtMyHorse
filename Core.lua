@@ -13,7 +13,7 @@ if class == "PALADIN" then
     SLASH_HORSE1 = "/lamh"
     SLASH_HORSE2 = "/horse"
     SlashCmdList["HORSE"] = function(msg)
-        if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = false, always = true} end
+        if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = false, frequency = 1} end
         if msg == "" then
             LookAtMyHorseDB.enabled = not LookAtMyHorseDB.enabled
             if LookAtMyHorseDB.enabled then
@@ -25,7 +25,8 @@ if class == "PALADIN" then
             end
         elseif msg == "mono" then
             LookAtMyHorseDB.mode=  "mono"
-            print("Mono mode: Only use the \"Look at my horse, my horse is amazing\" sample")
+            pr
+            ça sint("Mono mode: Only use the \"Look at my horse, my horse is amazing\" sample")
         elseif msg == "full" then
             LookAtMyHorseDB.mode = "full"
             index = 0
@@ -35,13 +36,20 @@ if class == "PALADIN" then
             print("Random mode: Use all samples, randomly")
         elseif msg == "chat" then
             LookAtMyHorseDB.chat = not LookAtMyHorseDB.chat
+
             if LookAtMyHorseDB.chat then print("Send chat message when in instance (default on)") else print("Ok, I won't say a word") end
-        elseif msg == "sometimes" then
-            LookAtMyHorseDB.always = false
-            print("Samples will only be used every now and then")
         elseif msg == "always" then
-            LookAtMyHorseDB.always = true
+            LookAtMyHorseDB.frequency = 1
             print("Samples will use each time you divine steed")
+        elseif msg == "often" then
+            LookAtMyHorseDB.frequency = 2
+            print("Samples will only be used often")
+        elseif msg == "sometimes" then
+            LookAtMyHorseDB.frequency = 3
+            print("Samples will only be used every now and then")
+        elseif msg == "seldom" then
+            LookAtMyHorseDB.frequency = 4
+            print("Samples will only be used seldomly")
         elseif msg == "status" then
             if LookAtMyHorseDB.enabled then print("LookAtMyHorse enabled") else print("LookAtMyHorse disabled") end
             print("LookAtMyHorse mode " .. LookAtMyHorseDB.mode)
@@ -50,11 +58,8 @@ if class == "PALADIN" then
         else
             print("Look At My Horse help:")
             print(" /horse help: Show this message")
-            print(" /horse mono: Only use the \"Look at my horse, my horse is amazing\" sample")
-            print(" /horse full: Use all samples, looping between them (default on)")
-            print(" /horse random: Use all samples, randomly")
-            print(" /horse sometimes: Samples will only be used every now and then")
-            print(" /horse always: Samples will use each time you divine steed")
+            print(" /horse mono/full/random: Use \"Look at my horse, my horse is amazing\" only/all samples in order/ all samples randomly")
+            print(" /horse seldom/sometimes/oftenalways: Define the frequency of the sound")
             print(" /horse chat: Send chat message when in instance (default on, only works in instances)")
             print(" /horse status: shows current config)")
             print(" /horse: Enable/disable the addon")
@@ -69,11 +74,8 @@ if class == "PALADIN" then
         if spellid ~= 190784 then return end
         local who = select(1, ...)
         if who ~= "player" then return end
-        if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = true, always = true} end
-        if not LookAtMyHorseDB.always and (random(1,3) ~= 1) then 
-            return
-        end
-        if LookAtMyHorseDB.enabled then -- divine steed 
+        if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = true, frequency = 1} end
+        if LookAtMyHorseDB.enabled and (random(1,LookAtMyHorseDB.frequency) == 1) then 
             if LookAtMyHorseDB.mode == "full" then
                 PlaySoundFile(horses[index % 5 + 1], "Master")
                 index = index + 1
