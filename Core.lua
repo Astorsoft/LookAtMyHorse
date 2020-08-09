@@ -1,5 +1,6 @@
 local _, class, _ = UnitClass("Player")
 
+
 if class == "PALADIN" then
     print("|cFF00FFFFLookAtMyHorse:|r Type |cFFFF00FF/horse|r to start crackin! |TInterface\\AddOns\\LookAtMyHorse\\Textures\\horse:24:24|t")
     local horses = {
@@ -38,7 +39,7 @@ if class == "PALADIN" then
             if LookAtMyHorseDB.chat then print("Send chat message when in instance") else print("Ok, I won't say a word") end
         elseif msg == "always" then
             LookAtMyHorseDB.frequency = 1
-            print("Samples will use each time you divine steed")
+            print("Samples will be used each time you divine steed")
         elseif msg == "often" then
             LookAtMyHorseDB.frequency = 2
             print("Samples will only be used often")
@@ -73,7 +74,7 @@ if class == "PALADIN" then
         local who = select(1, ...)
         if who ~= "player" then return end
         if not LookAtMyHorseDB then LookAtMyHorseDB = { enabled = true, mode = "full", chat = false, frequency = 1} end
-        if LookAtMyHorseDB.enabled and (random(1,LookAtMyHorseDB.frequency) == 1) then 
+        if LookAtMyHorseDB.enabled and (random(1,LookAtMyHorseDB.frequency) == 1) then
             if LookAtMyHorseDB.mode == "full" then
                 PlaySoundFile(horses[index % 5 + 1], "Master")
                 index = index + 1
