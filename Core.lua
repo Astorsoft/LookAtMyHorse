@@ -25,8 +25,7 @@ if class == "PALADIN" then
             end
         elseif msg == "mono" then
             LookAtMyHorseDB.mode=  "mono"
-            pr
-            ça sint("Mono mode: Only use the \"Look at my horse, my horse is amazing\" sample")
+            print("Mono mode: Only use the \"Look at my horse, my horse is amazing\" sample")
         elseif msg == "full" then
             LookAtMyHorseDB.mode = "full"
             index = 0
@@ -36,8 +35,7 @@ if class == "PALADIN" then
             print("Random mode: Use all samples, randomly")
         elseif msg == "chat" then
             LookAtMyHorseDB.chat = not LookAtMyHorseDB.chat
-
-            if LookAtMyHorseDB.chat then print("Send chat message when in instance (default on)") else print("Ok, I won't say a word") end
+            if LookAtMyHorseDB.chat then print("Send chat message when in instance") else print("Ok, I won't say a word") end
         elseif msg == "always" then
             LookAtMyHorseDB.frequency = 1
             print("Samples will use each time you divine steed")
@@ -52,15 +50,15 @@ if class == "PALADIN" then
             print("Samples will only be used seldomly")
         elseif msg == "status" then
             if LookAtMyHorseDB.enabled then print("LookAtMyHorse enabled") else print("LookAtMyHorse disabled") end
-            print("LookAtMyHorse mode " .. LookAtMyHorseDB.mode)
+            print("mode: " .. LookAtMyHorseDB.mode)
+            print("frequency: 1 time every " .. LookAtMyHorseDB.frequency .. " cast(s)")
             if LookAtMyHorseDB.chat then print("LookAtMyHorse chatmode on") else print("LookAtMyHorse chatmode off") end
-            if LookAtMyHorseDB.always then print("LookAtMyHorse always on") else print("LookAtMyHorse sometimes on") end
         else
             print("Look At My Horse help:")
             print(" /horse help: Show this message")
-            print(" /horse mono/full/random: Use \"Look at my horse, my horse is amazing\" only/all samples in order/ all samples randomly")
-            print(" /horse seldom/sometimes/oftenalways: Define the frequency of the sound")
-            print(" /horse chat: Send chat message when in instance (default on, only works in instances)")
+            print(" /horse mono/full/random: Use \"Look at my horse, my horse is amazing\" only/all samples in order/ all samples randomly (default: full)")
+            print(" /horse seldom/sometimes/oftenalways: Define the frequency of the sound (default: always)")
+            print(" /horse chat: Send chat message when in instance (default off, only works in instances)")
             print(" /horse status: shows current config)")
             print(" /horse: Enable/disable the addon")
         end
