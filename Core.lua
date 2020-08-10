@@ -22,7 +22,7 @@ if class == "PALADIN" then
                 print("Look at my horse on! |TInterface\\AddOns\\LookAtMyHorse\\Textures\\horse:24:24|t")
             else
                 PlaySoundFile("Interface\\AddOns\\LookAtMyHorse\\Sounds\\horse_off.mp3", "master")
-                print("Look at my horse off :(")
+                print("Look at my horse off. :(")
             end
         elseif msg == "mono" then
             LookAtMyHorseDB.mode=  "mono"
