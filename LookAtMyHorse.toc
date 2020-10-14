@@ -1,7 +1,7 @@
-## Interface: 80300
+## Interface: 90001
 ## Title: Look At My Horse! |TInterface\AddOns\LookAtMyHorse\Textures\horse:24:24|t
 ## Author: Astor
-## Version: 1.1
+## Version: 1.2
 ## Notes: My horse is amazing!
 ## X-Category: Audio/Video
 ## X-License: All Rights Reserved: You are free to fork and modify on GitHub, please ask us about anything else.
